@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رفوف خشبية عصرية</title>
+<style>
+body {margin:0; font-family: Arial, sans-serif; background:#f4f4f4;}
+.container {max-width:1000px; margin:auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.2);}
+.header {text-align:center; padding:30px;}
+.header h1 {color:#e74c3c; font-size:36px; margin-bottom:10px;}
+.header p {color:#555; font-size:18px;}
+
+/* معرض الصور */
+.slider {
+  position: relative;
+  max-width: 600px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.3);
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* أزرار التمرير */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background:#e67e22;
+  color:white;
+  padding:10px;
+  border-radius:50%;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:18px;
+}
+.prev {left:10px;}
+.next {right:10px;}
+
+.price-section {text-align:center; margin:30px 0;}
+.price-section h2 {color:#27ae60; font-size:32px; margin-bottom:10px;}
+.cta {text-align:center; margin:30px 0;}
+.cta a {background:#25D366; color:#fff; padding:18px 40px; font-size:20px; border-radius:10px; text-decoration:none; transition:0.3s;}
+.cta a:hover {background:#128C7E;}
+.testimonial {background:#f1c40f; padding:20px; border-radius:10px; margin:30px 0; color:#2c3e50;}
+.footer {text-align:center; padding:20px; font-size:14px; color:#555;}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>حوّل حائطك الفارغ إلى لمسة ديكور عصرية!</h1>
+<p>رفوف خشبية 100% عالية الجودة، تصميم عصري يمنح منزلك ترتيب وأناقة بدون استغلال مساحة كبيرة.</p>
+</div>
+
+<!-- معرض الصور -->
+<div class="slider">
+  <div class="slides">
+    <img src="https://i.imgur.com/d6WNyXz.jpeg" alt="رف خشبي 1">
+    <img src="https://i.imgur.com/SMx37oe.jpeg" alt="رف خشبي 2">
+  </div>
+  <div class="prev" onclick="prevSlide()">&#10094;</div>
+  <div class="next" onclick="nextSlide()">&#10095;</div>
+</div>
+
+<div class="price-section">
+<h2>السعر: 3200 دج</h2>
+<p>💰 الدفع عند الاستلام - التوصيل متوفر</p>
+</div>
+
+<div class="cta">
+<a href="https://wa.me/2130666539458?text=السلام+عليكم،+أريد+طلب+رف+خشبي" target="_blank">
+اطلب الآن عبر واتساب
+</a>
+</div>
+
+<div class="testimonial">
+<h3>آراء الزبائن</h3>
+<p>⭐ "جودة الخشب ممتازة، المنظر رائع في الصالون!"</p>
+<p>⭐ "سهل التركيب وأعطى الحائط لمسة جمالية رائعة."</p>
+<p>⭐ "أنصح به لأي شخص يريد ديكور عصري بدون تعب."</p>
+</div>
+
+<div class="footer">
+⚠ الكمية محدودة - احجز الآن قبل نفادها!<br>
+© 2026 جميع الحقوق محفوظة
+</div>
+
+</div>
+
+<script>
+let index = 0;
+const slides = document.querySelector('.slides');
+const total = slides.children.length;
+
+function showSlide(i){
+  if(i >= total) index = 0;
+  else if(i < 0) index = total - 1;
+  else index = i;
+  slides.style.transform = 'translateX(' + (-index * 100) + '%)';
+}
+
+function nextSlide(){ showSlide(index + 1); }
+function prevSlide(){ showSlide(index - 1); }
+
+// تمرير تلقائي كل 4 ثواني
+setInterval(() => { nextSlide(); }, 4000);
+</script>
+
+</body>
+</html>
